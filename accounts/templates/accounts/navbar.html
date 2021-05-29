@@ -1,0 +1,76 @@
+
+{% load static %}
+
+
+<style>
+  .hello-msg{
+    font-size: 1.5rem;
+    color: rgb(138, 135, 135);
+    margin-right: 10px;
+    font-weight: 400;
+  }
+.nav-link {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: rgb(138, 135, 135);
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s;
+}
+  .im{
+    width:60px;
+    height:60px;
+  background-color: color;
+  background-blend-mode: mode;
+  }
+  .di{
+    padding-left:30px;
+  padding-right:30px;
+  }
+  .nv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  width: 100%;
+  padding: 0 6rem;
+  z-index: 100;
+}
+
+</style>
+
+<nav class="navbar navbar-expand-lg nv">
+ <img class='im' src="{% static 'images/icon.png' %}">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav di">
+      {% if request.user.is_staff %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'dashboard' %}">Dashboard⚔</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'products' %}">Products🛍</a>
+      </li>
+      {% else %}
+       <li class="nav-item">
+        <a class="nav-link" href="{% url 'account' %}">Profile😎</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'dashboard' %}">Dashboard🛒</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'create' user.id %}">Create order🛍</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'products' %}">Products🛍</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+
+  <span class="hello-msg">Hello👋, {{request.user}}</span>
+  <span ><a  class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+
+</nav>
