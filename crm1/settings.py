@@ -74,19 +74,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'crm1.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME':'DEMO_TEST',
-#         'USER':'postgres',
-#         'PASSWORD':'rajak095',
-#         'HOST':'localhost',
-#         'PORT':'5433',
-#     }
-# }
 DBNAME = 'demo_database'
 
 DATABASES = {
