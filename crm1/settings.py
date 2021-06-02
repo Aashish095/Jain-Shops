@@ -24,7 +24,7 @@ SECRET_KEY ='cz=&%f*9(d*zo$_55p=(p)(eki#p$pb^0159-)8k^6$9c3l&_b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['aashish-crm.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -156,12 +156,16 @@ EMAIL_HOST_PASSWORD = '09051999'
 
 #S3 BUCKETS CONFIG
 
-AWS_ACCESS_KEY_ID = 'AKIASOEAGZXZJKB7JY6K'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'aashish-crm1-bucket'
+AWS_ACCESS_KEY_ID = 'AKIASOEAGZXZMSJENTBA'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'crm-shop-bucket'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
+AWS_S3_OBJECT_PARAMETERS = {
+    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+    'CacheControl': 'max-age=94608000',
+}
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
