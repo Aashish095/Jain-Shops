@@ -85,8 +85,8 @@ DATABASES = {
         'CLIENT':{
             'host':'mongodb+srv://test1:test1@cluster0.aubeo.mongodb.net/test',
             'port':27017,
-            'username':'test1',
-            'password':'test1',
+            'username':'',
+            'password':'',
         }
     }
 }
