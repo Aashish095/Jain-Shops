@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-SECRET_KEY =''
+SECRET_KEY ='cz=&%f*9(d*zo$_55p=(p)(eki#p$pb^0159-)8k^6$9c3l&_b'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -79,18 +79,11 @@ WSGI_APPLICATION = 'crm1.wsgi.application'
 DBNAME = 'demo_database'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'NAME':'demo_database',
-        'CLIENT':{
-            'host':'mongodb+srv://test1:password@cluster0.aubeo.mongodb.net/test',
-            'port':27017,
-            'username':'',
-            'password':'',
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-}
-
 
 
 # Password validation
@@ -129,15 +122,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/images/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+# STATICFILES_DIRS = [
+#     os.path.join('/home/aash/crm1/static')
+# ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
@@ -154,16 +147,16 @@ EMAIL_HOST_PASSWORD = ''
 
 #S3 BUCKETS CONFIG
 
-AWS_ACCESS_KEY_ID = ''
-AWS_SECRET_ACCESS_KEY = ''
-AWS_STORAGE_BUCKET_NAME = 'crm-shop-bucket'
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_S3_OBJECT_PARAMETERS = {
-    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-    'CacheControl': 'max-age=94608000',
-}
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# AWS_ACCESS_KEY_ID = ''
+# AWS_SECRET_ACCESS_KEY = ''
+# AWS_STORAGE_BUCKET_NAME = 'crm-shop-bucket'
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL = None
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_S3_OBJECT_PARAMETERS = {
+#     'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+#     'CacheControl': 'max-age=94608000',
+# }
+# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 

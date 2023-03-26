@@ -9,6 +9,8 @@ from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
+import logging
+logging.basicConfig(level=logging.INFO)
 
 # Create your views here.
 from .models import *
@@ -161,7 +163,9 @@ def createOrder(request, pk):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def createOrderUser(request, pk1):
+	logging.info("start creation"+str(request))
 	OrderFormSet = inlineformset_factory(Customer, Order, fields=('product', 'note',), extra=10 )
+	logging.info(pk1)
 	customer = Customer.objects.get(id=pk1)
 	formset = OrderFormSet(queryset=Order.objects.none(),instance=customer)
 	if request.method == 'POST':
