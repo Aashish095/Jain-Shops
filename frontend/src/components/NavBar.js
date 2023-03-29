@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Css/main.css'
+import '../Css/navbar.css'
 import Logo from '../icon.png'
 import { Link } from 'react-scroll';
 const MyComponent = () => {
