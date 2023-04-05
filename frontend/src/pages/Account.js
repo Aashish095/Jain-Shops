@@ -17,7 +17,7 @@ const Account = ()=> {
  const [profilePicUrl, setProfilePicUrl] = useState('');
   function handleSubmit(e) {
     e.preventDefault();
-    // Do something with the form data, such as sending it to a server
+    // Do something with the form data, such as sending it  to a server
     console.log({ name, phone, email, profilePic });
   }
 
@@ -35,10 +35,11 @@ const Account = ()=> {
             <br/>
           <NavBarDashboard user={user}/>
           <br/>
-      <div className="row">
+          <div className="account_div">
+              <div className="row">
             <div className="col-md-3">
                 <div className="card card-body">
-                    <Link className="btn btn-warning" href="" to="/dashboard"> &#8592; Back to Profile</Link>
+                    <Link className="btn btn-warning" id="button_link" href="" to="/dashboard"> &#8592; Back to Profile</Link>
                     <hr/>
                     <h3 style={{textAlign: "center"}}>Account Settings</h3>
                     <hr/>
@@ -50,30 +51,71 @@ const Account = ()=> {
 
       <div className="col-md-9">
           <div className="card card-body">
-                  <form onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor="name">Name:</label>
-                <input type="text" id="name" value={name} onChange={e => setName(e.target.value)} />
-              </div>
-              <div>
-                <label htmlFor="phone">Phone:</label>
-                <input type="text" id="phone" value={phone} onChange={e => setPhone(e.target.value)} />
-              </div>
-              <div>
-                <label htmlFor="email">Email:</label>
-                <input type="email" id="email" value={email} onChange={e => setEmail(e.target.value)} />
-              </div>
-              <span>Currently: {profilePicUrl?profilePicUrl:"Please add pic"}</span><br/>
-            <input type="file" className="profile-pic" onChange={handleProfilePicChange} />
-            <span>Selected file: {profilePicUrl}</span> {/* Display the selected file URL */}
-            <button type="button" onClick={() => setProfilePic('')}>Clear</button>
-               <div>
-                   <button type="submit">Submit</button>
-               </div>
-            </form>
+              <form onSubmit={handleSubmit} className="form_css">
+                  <div className="d-flex">
+                  <div className="input-group mb-3">
+                            <div className="input-group-append">
+                              <span className="input-group-text">
+                                <i className="fas fa-user"></i>
+                              </span>
+                            </div>
+                            <input
+                              type="text"
+                              name="username"
+                              className="form-control input_user"
+                              placeholder="Username"
+                              value={name}
+                              onChange={e => setName(e.target.value)}
+                            />
+                          </div>
+                  </div>
+                  <div className="input-group mb-2">
+                            <div className="input-group-append">
+                              <span className="input-group-text">
+                                    <i className="fa-solid fa-phone"></i>
+                              </span>
+                            </div>
+                            <input
+                              type="text"
+                              name="phone"
+                              className="form-control input_user"
+                              placeholder="Phone"
+                              id="phone" value={phone} onChange={e => setPhone(e.target.value)}
+                            />
+                  </div>
+                  <div className="input-group mb-2">
+                            <div className="input-group-append">
+                              <span className="input-group-text">
+                                <i className="fas fa-envelope-square"></i>
+                              </span>
+                            </div>
+                            <input
+                              type="text"
+                              name="email"
+                              className="form-control input_user"
+                              placeholder="Email"
+                            />
+                          </div>
+                  <div>
+
+                      <span className="">Currently: {profilePicUrl?profilePicUrl:""}</span>&nbsp;
+                       <input className="" type="checkbox" value="" id="" />    <br/>
+                          <label className="" htmlFor="flexCheckChecked">
+                              {profilePicUrl}
+                          </label>
+                    <input type="file" className="profile-pic" onChange={handleProfilePicChange} />
+                  </div>
+
+                   <div className="d-flex justify-content-center mt-3 login_container">
+                       <button className="btn login_btn" type="submit">Submit</button>
+                   </div>
+              </form>
           </div>
       </div>
           </div>
+
+          </div>
+
   </>
 
 

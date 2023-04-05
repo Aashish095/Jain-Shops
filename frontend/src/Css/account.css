@@ -4,3 +4,28 @@
     margin: 0 auto;
     border-radius: 50%;
 }
+
+.form_setting{
+    padding: 20px;
+    font-weight: bold;
+}
+
+.account_div{
+    padding: 10px;
+}
+label{
+    padding-right: 10px;
+}
+
+#button_link{
+
+    background-color: yellow;
+}
+
+.input-group-append{
+    
+}
+.form_css{
+    width: 250px;
+
+}

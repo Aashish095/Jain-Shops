@@ -161,7 +161,7 @@ def createOrder(request, pk):
 	return render(request, 'accounts/order_form.html', context)
 
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['customer'])
+@allowed_users(allowed_roles=['customer','admin'])
 def createOrderUser(request, pk1):
 	logging.info("start creation"+str(request))
 	OrderFormSet = inlineformset_factory(Customer, Order, fields=('product', 'note',), extra=10 )

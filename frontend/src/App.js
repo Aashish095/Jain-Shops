@@ -10,6 +10,9 @@ import Products from "./pages/Products";
 import Account from "./pages/Account";
 import CreateOrder from "./pages/CreateOrder";
 import Logout from "./pages/Logout";
+import CreateCustomer from "./pages/CreateCustomer";
+import Delete from "./pages/Delete";
+import UpdateOrder from "./pages/UpdateOrder";
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
                 <Route path="/account" Component={Account}/>
                 <Route path="/create/:id" Component={CreateOrder}/>
                 <Route path="/logout" Component={Logout}/>
+                <Route path="/create_customer" Component={CreateCustomer}/>
+                <Route path="/delete_order/:id" Component={Delete}/>
+                <Route path="/update_order/:id" Component={UpdateOrder}/>
             </Routes>
         </div>
       </BrowserRouter>

@@ -6,6 +6,7 @@ const NavBarDashboard = ({ user }) => {
 
 
   return (
+      <section>
     <nav className="navbar navbar-expand-lg nv">
       <img className="im" src={icon} alt="icon" />
       <button
@@ -62,10 +63,11 @@ const NavBarDashboard = ({ user }) => {
       </div>
 
       <span className="hello-msg">Hello👋, {user.username}</span>
-      <Link className="hello-msg" to="/logout">
+      <Link className="hello-msg" to="/">
         Logout
       </Link>
     </nav>
+          </section>
   );
 };
 
